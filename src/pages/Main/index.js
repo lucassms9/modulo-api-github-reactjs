@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { FaGitAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
-import { Container, Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List } from './styles';
+import Container from '../../components/Container';
 
 export default class Main extends Component {
   constructor(props) {
@@ -78,7 +80,9 @@ export default class Main extends Component {
           {repositories.map((repo) => (
             <li key={repo.name}>
               <span>{repo.name}</span>
-              <a href="#">Detalhes</a>
+              <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
+                Detalhes
+              </Link>
             </li>
           ))}
         </List>
