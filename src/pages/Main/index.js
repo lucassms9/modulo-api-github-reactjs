@@ -4,11 +4,14 @@ import api from '../../services/api';
 import { Container, Form, SubmitButton, List } from './styles';
 
 export default class Main extends Component {
-  state = {
-    newRepo: '',
-    repositories: [],
-    loading: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      newRepo: '',
+      repositories: [],
+      loading: false,
+    };
+  }
 
   componentDidMount() {
     const repositories = localStorage.getItem('repositories');
